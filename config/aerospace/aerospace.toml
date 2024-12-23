@@ -25,7 +25,7 @@ exec-on-workspace-change = [
 start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
-enable-normalization-flatten-containers = true
+enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
@@ -131,7 +131,7 @@ ctrl-alt-cmd-r = 'reload-config'
 ctrl-alt-shift-r = 'exec-and-forget  sketchybar --reload'
 
 # programm shortcuts
-cmd-enter = 'exec-and-forget alacritty'
+cmd-enter = 'exec-and-forget kitty'
 cmd-alt-space = 'exec-and-forget open -a Finder.app'
 
 # Disable annoying and useless "hide application" shortcut
