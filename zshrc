@@ -11,6 +11,7 @@ fi
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
 ZSH_THEME="robbyrussell"
 
@@ -122,3 +123,10 @@ bindkey '^[[B' history-search-forward
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `pipx` on 2025-08-10 18:33:15
+export PATH="$PATH:/Users/howard/.local/bin"

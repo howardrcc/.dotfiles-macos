@@ -9,8 +9,18 @@
 - neovim
 - (optional) lazyvim
 - manage .rc files using rcm
+- karabiner for key remapping and rdp
 
+## apps
 
+Zen browser
+neovim
+ghostty
+tmux
+fd
+fzf
+z 
+brew
 
 ## clone this repo and run install.sh; or
 
@@ -20,12 +30,9 @@ or:
 
 ## use rcm to install/symlink rc-files
 
-
 ## install software/apps
 
 ## alacritty themes
-
-
 
 ## allow (homebrew) via terminal
 
@@ -33,6 +40,6 @@ xattr -d com.apple.quarantine /Applications/Alacritty.app
 
 ### thanks to
 
-- https://github.com/JaKooLit/Wallpaper-Bank
-- https://github.com/FelixKratz/SketchyBar
+- <https://github.com/JaKooLit/Wallpaper-Bank>
+- <https://github.com/FelixKratz/SketchyBar>
 - bin101 ???

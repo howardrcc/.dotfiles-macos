@@ -68,7 +68,9 @@ inner.horizontal = 1
 inner.vertical = 1
 outer.left = 1
 outer.bottom = 1
-outer.top = [{ monitor."built-in" = 1 }, 1]
+
+outer.top = [{ monitor."LG" = 30 }, 2]
+#outer.top = 10
 outer.right = 1
 
 
@@ -83,6 +85,7 @@ outer.right = 1
 #                   keypadMinus, keypadMultiply, keypadPlus
 # - Arrows.         left, down, up, right
 # All possible modifiers: cmd, alt, ctrl, shift
+
 
 [mode.main.binding]
 ctrl-alt-a = 'layout h_accordion'
@@ -106,21 +109,23 @@ alt-cmd-l = 'join-with right'
 ctrl-alt-h = 'resize width -100'
 ctrl-alt-j = 'resize height +100'
 ctrl-alt-k = 'resize height -100'
-ctrl-alt-l = 'resize width +100'
+ctrl-alt-l = 'resize width +100'  #LOGS OUT
 
 alt-1 = 'workspace 1_web'
-alt-2 = 'workspace 2_code'
-alt-3 = 'workspace 3_rdp'
-alt-4 = 'workspace 4_mail'
-alt-5 = 'workspace 5_social'
-alt-6 = 'workspace 6_media'
+alt-2 = 'workspace 2_sys'
+alt-3 = 'workspace 3_code'
+alt-4 = 'workspace 4_rdp'
+alt-q = 'workspace 5qmail'
+alt-w = 'workspace 6wsocial'
+alt-e = 'workspace 7enotes'
 
 alt-shift-1 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 1_web && sketchybar --trigger space_windows_change'
-alt-shift-2 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 2_code && sketchybar --trigger space_windows_change'
-alt-shift-3 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 3_rdp && sketchybar --trigger space_windows_change'
-alt-shift-4 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 4_mail && sketchybar --trigger space_windows_change'
-alt-shift-5 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 5_social && sketchybar --trigger space_windows_change'
-alt-shift-6 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 6_media && sketchybar --trigger space_windows_change'
+alt-shift-2 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 2_sys && sketchybar --trigger space_windows_change'
+alt-shift-3 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 3_code && sketchybar --trigger space_windows_change'
+alt-shift-4 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 4_rdp && sketchybar --trigger space_windows_change'
+alt-shift-q = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 5qmail && sketchybar --trigger space_windows_change'
+alt-shift-w = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 6wsocial && sketchybar --trigger space_windows_change'
+alt-shift-e = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 7enotes && sketchybar --trigger space_windows_change'
 
 alt-x = 'workspace-back-and-forth'
 alt-space = 'layout floating tiling'
@@ -130,8 +135,7 @@ alt-shift-f = 'macos-native-fullscreen'
 ctrl-alt-cmd-r = 'reload-config'
 ctrl-alt-shift-r = 'exec-and-forget  sketchybar --reload'
 
-# programm shortcuts
-cmd-enter = 'exec-and-forget kitty'
+cmd-enter = 'exec-and-forget open -a /Applications/Ghostty.app'
 cmd-alt-space = 'exec-and-forget open -a Finder.app'
 
 # Disable annoying and useless "hide application" shortcut
@@ -139,12 +143,24 @@ cmd-h = [] # Disable "hide application"
 
 
 [workspace-to-monitor-force-assignment]
-1_web = ['main', 'built-in']
-2_code = ['main', 'built-in']
-3_rdp = ['built-in']
-4_mail = ['built-in']
-5_social = ['built-in']
-6_media = ['built-in']
+1_web = ['main', 'secondary']
+2_sys = ['main', 'secondary']
+3_code = ['main', 'secondary']
+4_rdp = ['main', 'secondary']
+5qmail = ['main', 'secondary']
+6wsocial = ['main', 'secondary']
+7enotes = ['main', 'secondary']
+
+
+#    1 = 1                            # Monitor sequence number from left to right. 1-based indexing
+#    2 = 'main'                       # Main monitor
+#   3 = 'secondary'                  # Non-main monitor in case when there are only two monitors
+#  4 = 'built-in'                   # Case insensitive regex substring
+#  5 = '^built-in retina display$'  # Case insensitive regex match
+#  6 = ['secondary', 'dell']        # You can specify multiple patterns.
+#   The first matching pattern will be used
+
+
 # floating rules
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -152,49 +168,79 @@ run = ['layout floating']
 
 # programm workspace rules
 ## web
+
+[[on-window-detected]]
+if.app-id = 'com.kagi.kagimacOS'
+run = ['move-node-to-workspace 1_web']
+
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
 run = ['move-node-to-workspace 1_web']
 
-## media
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = ['move-node-to-workspace 2_code']
+if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
+run = ['move-node-to-workspace 2_sys']
 
 [[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = ['move-node-to-workspace 6_media']
+if.app-id = 'com.mitchellh.ghostty'
+run = ['move-node-to-workspace 2_sys']
+
+## code
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = ['move-node-to-workspace 3_code']
+
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ['move-node-to-workspace 3_code']
+
 
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
-run = ['move-node-to-workspace 2_code']
-
-## mail
-[[on-window-detected]]
-if.app-id = 'org.mozilla.betterbird'
-run = ['move-node-to-workspace 4_mail']
+run = ['move-node-to-workspace 3_code']
 
 [[on-window-detected]]
-if.app-id = 'com.apple.iCal'
-run = ['move-node-to-workspace 4_mail']
+if.app-id = 'com.mitchellh.ghostty'
+#run = ['layout floating', 'move-node-to-workspace 2_sys']
+run = ['layout tiling', 'move-node-to-workspace 2_sys']
 
-## social
-[[on-window-detected]]
-if.app-id = 'com.microsoft.Outlook'
-run = ['move-node-to-workspace 4_mail']
 
-[[on-window-detected]]
-if.app-id = 'com.microsoft.teams2'
-run = ['move-node-to-workspace 5_social']
-
-[[on-window-detected]]
-if.app-id = 'org.whispersystems.signal-desktop-beta'
-run = ['move-node-to-workspace 5_social']
-
-[[on-window-detected]]
-if.app-id = 'im.riot.app'
-run = ['move-node-to-workspace 5_social']
+#[[on-window-detected]]
+#if.app-id = 'com.spotify.client'
+#run = ['move-node-to-workspace 6_media']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.rdc.macos'
-run = ['move-node-to-workspace 3_rdp']
+if.window-title-regex-substring = 'CZC'
+run = ['move-node-to-workspace 4_rdp']
+
+
+## mail
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+run = ['move-node-to-workspace 5qmail']
+
+
+[[on-window-detected]]
+if.app-id = 'ch.protonmail.desktop'
+run = ['move-node-to-workspace 5qmail']
+
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = ['move-node-to-workspace 6wsocial']
+
+[[on-window-detected]]
+if.app-id = 'org.whispersystems.signal-desktop-beta'
+run = ['move-node-to-workspace 6wsocial']
+
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.rdc.macos'
+if.window-title-regex-substring = 'Devices'
+run = ['move-node-to-workspace 7enotes']
+
+
+# programm shortcuts
