@@ -69,7 +69,9 @@ inner.vertical = 1
 outer.left = 1
 outer.bottom = 1
 
-outer.top = [{ monitor."LG" = 30 }, 2]
+#outer.top = [{ monitor."LG" = 30 }, 2]
+
+outer.top = [{ monitor."C49RG9x" = 20 }, 2]
 #outer.top = 10
 outer.right = 1
 
@@ -135,7 +137,7 @@ alt-shift-f = 'macos-native-fullscreen'
 ctrl-alt-cmd-r = 'reload-config'
 ctrl-alt-shift-r = 'exec-and-forget  sketchybar --reload'
 
-cmd-enter = 'exec-and-forget open -a /Applications/Ghostty.app'
+cmd-enter = 'exec-and-forget open -n -a /Applications/Ghostty.app'
 cmd-alt-space = 'exec-and-forget open -a Finder.app'
 
 # Disable annoying and useless "hide application" shortcut
@@ -152,19 +154,19 @@ cmd-h = [] # Disable "hide application"
 7enotes = ['main', 'secondary']
 
 
-#    1 = 1                            # Monitor sequence number from left to right. 1-based indexing
-#    2 = 'main'                       # Main monitor
-#   3 = 'secondary'                  # Non-main monitor in case when there are only two monitors
-#  4 = 'built-in'                   # Case insensitive regex substring
-#  5 = '^built-in retina display$'  # Case insensitive regex match
-#  6 = ['secondary', 'dell']        # You can specify multiple patterns.
-#   The first matching pattern will be used
+# 1 = 1                            # Monitor sequence number from left to right. 1-based indexing
+# 2 = 'main'                       # Main monitor
+# 3 = 'secondary'                  # Non-main monitor in case when there are only two monitors
+# 4 = 'built-in'                   # Case insensitive regex substring
+# 5 = '^built-in retina display$'  # Case insensitive regex match
+# 6 = ['secondary', 'dell']        # You can specify multiple patterns.
+# The first matching pattern will be used
 
 
 # floating rules
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = ['layout floating']
+run = ['move-node-to-workspace 2_sys']
 
 # programm workspace rules
 ## web
@@ -183,7 +185,8 @@ run = ['move-node-to-workspace 2_sys']
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ['move-node-to-workspace 2_sys']
+run = ["layout tiling",'move-node-to-workspace 2_sys']
+#"layout floating"u
 
 ## code
 [[on-window-detected]]
@@ -242,5 +245,9 @@ if.app-id = 'com.microsoft.rdc.macos'
 if.window-title-regex-substring = 'Devices'
 run = ['move-node-to-workspace 7enotes']
 
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Word'
+run = ['move-node-to-workspace 7enotes']
 
 # programm shortcuts
