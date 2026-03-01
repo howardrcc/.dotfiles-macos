@@ -13,7 +13,7 @@
     background-opacity = 0.7
     background-blur-radius = 20
 
-    macos-option-as-alt = both
+    macos-option-as-alt = true
 
     # Match alacritty CoolNight color scheme feel
     # theme = catppuccin-mocha

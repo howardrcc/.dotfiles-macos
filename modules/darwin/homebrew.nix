@@ -14,11 +14,13 @@
     taps = [
       "felixkratz/formulae" # sketchybar + borders
       "nikitabobko/tap" # aerospace
+      "shaunsingh/sfmono-nerd-font-ligaturized" # font-sf-mono-nerd-font-ligaturized
     ];
 
     brews = [
       "felixkratz/formulae/sketchybar" # Not in nixpkgs
       "felixkratz/formulae/borders" # JankyBorders window borders — not in nixpkgs
+      "lua" # Required by sketchybar launchd service (Nix lua not in launchd PATH)
     ];
 
     casks = [
@@ -30,6 +32,7 @@
 
       # Browsers
       "firefox"
+      "zen-browser"
 
       # Editors / Dev
       "visual-studio-code"
