@@ -51,6 +51,8 @@ sudo darwin-rebuild switch --flake ~/.dotfiles
 │       ├── git.nix             # programs.git + programs.delta
 │       ├── terminal.nix        # Ghostty config via xdg.configFile
 │       ├── aerospace.nix       # AeroSpace TOML via xdg.configFile
+│       ├── aerospace/
+│       │   └── aerospace.toml  # AeroSpace config (source of truth)
 │       ├── karabiner.nix       # Karabiner JSON via xdg.configFile
 │       └── sketchybar/
 │           ├── default.nix     # Lua config dir via xdg.configFile
