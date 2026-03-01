@@ -130,3 +130,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Created by `pipx` on 2025-08-10 18:33:15
 export PATH="$PATH:/Users/howard/.local/bin"
+alias update="sudo darwin-rebuild switch --flake ~/.dotfiles"

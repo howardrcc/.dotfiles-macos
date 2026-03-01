@@ -19,7 +19,7 @@ ghostty
 tmux
 fd
 fzf
-z 
+z
 brew
 
 ## clone this repo and run install.sh; or
@@ -42,4 +42,24 @@ xattr -d com.apple.quarantine /Applications/Alacritty.app
 
 - <https://github.com/JaKooLit/Wallpaper-Bank>
 - <https://github.com/FelixKratz/SketchyBar>
-- bin101 ???
+- bin101 ??
+
+# install nix
+
+install nix, via nixos.org or determinate.
+determinate adds some tweaks out of the box such as flakes and experimental features
+
+```shell
+curl --proto '=https' --tlsv1.2 -sSf -L \
+  https://install.determinate.systems/nix | sh -s -- install?
+``
+
+# create a flake.nix (or use one from the repoe
+
+bootstrap darwin for rebuild
+```shell
+nix run nix-darwin -- switch --flake ~/.dotfiles`
+``
+
+nix build ~/.dotfiles#darwinConfigurations.Mac.system
+sudo ./result/activate`
