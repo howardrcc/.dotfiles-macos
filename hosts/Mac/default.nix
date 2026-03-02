@@ -24,7 +24,7 @@
   networking.hostName = "Mac";
 
   security.pam.services.sudo_local.touchIdAuth = true;
-
+  launchd.daemons.activate-system.serviceConfig.RunAtLoad = false;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.howard = import ../../modules/home;
