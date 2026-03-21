@@ -32,7 +32,8 @@
 
       # Browsers
       "firefox"
-      "zen-browser"
+      "zen"
+      "google-chrome"
 
       # Editors / Dev
       "visual-studio-code"
@@ -40,8 +41,9 @@
       # Productivity
       "raycast"
       "obsidian"
-      "1password"
-      "1password-cli"
+      "bitwarden"
+      #"1password"
+      #"1password-cli"
 
       # Communication
       "microsoft-outlook"

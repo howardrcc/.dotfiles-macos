@@ -19,6 +19,7 @@
     neovim
     lazygit
     gh
+    dotnet-sdk_8 # .NET 8 LTS
     # delta (git diff pager) managed via programs.delta in home/git.nix
 
     # Scripting (used by SketchyBar Lua config)

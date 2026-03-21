@@ -1,4 +1,5 @@
 result
+.DS_Store
 
 # SketchyBar event provider compiled binaries (built at runtime by make)
 modules/home/sketchybar/config/helpers/event_providers/*/bin/

@@ -41,11 +41,23 @@
       bindkey "^[[A" history-search-backward
       bindkey "^[[B" history-search-forward
 
+      # Home/End
+      bindkey "^[[H" beginning-of-line
+      bindkey "^[[F" end-of-line
+      bindkey "^[OH" beginning-of-line
+      bindkey "^[OF" end-of-line
+
+      # Delete
+      bindkey "^[[3~" delete-char
+
       # Java (Homebrew-managed openjdk)
       export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
       # Pipx / local user bin
       export PATH="$HOME/.local/bin:$PATH"
+
+      # .NET global tools
+      export PATH="$HOME/.dotnet/tools:$PATH"
 
       # Cargo / Rust
       [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"

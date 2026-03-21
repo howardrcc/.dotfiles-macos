@@ -70,6 +70,8 @@ sudo darwin-rebuild switch --flake ~/.dotfiles
 - Git config goes to `~/.config/git/config` (not `~/.gitconfig`) in this version of Home Manager
 - SketchyBar event provider binaries (`cpu_load`, `network_load`) are compiled aarch64 binaries checked in to `modules/home/sketchybar/config/helpers/event_providers/*/bin/` — rebuild by running `helpers/install.sh` if they break after macOS upgrades
 - `font-sketchybar-app-font` must not have a conflicting manually-installed TTF at `~/Library/Fonts/sketchybar-app-font.ttf`
+- SketchyBar launchd service PATH is only `/opt/homebrew/bin:...` — Nix packages are invisible to it. Keep `lua` in `homebrew.brews` (not just Nix packages) so the service can execute the Lua config
+- SketchyBar event provider binaries (`helpers/event_providers/*/bin/`) must NOT be Nix-managed symlinks — `helpers/init.lua` recompiles them with `make` on every startup. They're gitignored and rebuilt fresh each run
 - `shaunsingh/sfmono-nerd-font-ligaturized` tap can't be untapped while `font-sf-mono-nerd-font-ligaturized` cask is installed (harmless warning)
 - `programs.zsh.initExtra` is deprecated — use `initContent` instead
 - `nixfmt-rfc-style` package is deprecated — use `nixfmt` (same thing now)
