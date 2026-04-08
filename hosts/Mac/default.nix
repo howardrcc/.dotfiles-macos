@@ -23,6 +23,18 @@
   system.primaryUser = "howard";
   networking.hostName = "Mac";
 
+  # Syncthing auto-start
+  launchd.user.agents.syncthing = {
+    command = "${pkgs.syncthing}/bin/syncthing serve --no-browser";
+    serviceConfig = {
+      KeepAlive = true;
+      RunAtLoad = true;
+      ProcessType = "Background";
+      StandardOutPath = "/Users/howard/Library/Logs/syncthing.log";
+      StandardErrorPath = "/Users/howard/Library/Logs/syncthing-error.log";
+    };
+  };
+
   security.pam.services.sudo_local.touchIdAuth = true;
   #launchd.daemons.activate-system.serviceConfig.RunAtLoad = lib.mkForce false;
   home-manager.useGlobalPkgs = true;

@@ -15,7 +15,8 @@
       "felixkratz/formulae" # sketchybar + borders
       "nikitabobko/tap" # aerospace
       "shaunsingh/sfmono-nerd-font-ligaturized" # font-sf-mono-nerd-font-ligaturized
-    ];
+      "manaflow-ai/cmux"
+  ];
 
     brews = [
       "felixkratz/formulae/sketchybar" # Not in nixpkgs
@@ -23,13 +24,17 @@
       "lua" # Required by sketchybar launchd service (Nix lua not in launchd PATH)
     ];
 
-    casks = [
+
+casks = [
       # Window management
       "nikitabobko/tap/aerospace"
 
       # Terminal
       "ghostty"
+      "manaflow-ai/cmux/cmux"
 
+      #misc
+      "multimc"
       # Browsers
       "firefox"
       "zen"
