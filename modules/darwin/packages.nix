@@ -26,6 +26,9 @@
     lua5_4
     luarocks
 
+    # Document conversion (R Markdown / R CMD check vignette builds)
+    pandoc
+
     # Sync
     syncthing
 
@@ -39,6 +42,6 @@
     switchaudio-osx
 
     #sd card tools
-    fio
+#    fio
   ];
 }

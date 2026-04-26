@@ -22,6 +22,7 @@
       "felixkratz/formulae/sketchybar" # Not in nixpkgs
       "felixkratz/formulae/borders" # JankyBorders window borders — not in nixpkgs
       "lua" # Required by sketchybar launchd service (Nix lua not in launchd PATH)
+      "unixodbc" # ODBC headers/libs for the `odbc` R package (~/workspace/dwhr)
     ];
 
 
@@ -42,6 +43,7 @@ casks = [
 
       # Editors / Dev
       "visual-studio-code"
+      "r" # CRAN binary R 4.4+ for ~/workspace/dwhr development (CRAN-target package)
 
       # Productivity
       "raycast"

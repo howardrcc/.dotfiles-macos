@@ -15,6 +15,9 @@
 
     macos-option-as-alt = true
 
+    resize-overlay = never
+    window-padding-balance = true
+
     # Match alacritty CoolNight color scheme feel
     # theme = catppuccin-mocha
   '';

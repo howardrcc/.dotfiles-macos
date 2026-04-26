@@ -21,7 +21,7 @@
 
       # File listing (eza)
       ls = "eza --icons=always -a";
-      ll = "eza --icons=always -l -a";
+      ll = "eza --icons=always -l -a --group-directories-first";
 
       # Better defaults
       cat = "bat";
