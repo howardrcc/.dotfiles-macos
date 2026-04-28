@@ -6,6 +6,7 @@
     ../../modules/darwin/packages.nix
     ../../modules/darwin/homebrew.nix
     ../../modules/darwin/fonts.nix
+    ../../modules/darwin/r.nix
     inputs.home-manager.darwinModules.home-manager
   ];
 
