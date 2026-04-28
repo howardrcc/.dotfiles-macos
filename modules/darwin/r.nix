@@ -94,9 +94,11 @@ in
     pkgs.pkg-config
     pkgs.gcc
 
-    # 15PdfShowcase: PDF rendering pipeline
-    # (samenvatting.Rnw / meetplan.Rnw / maandrapportage.Rnw)
-    pkgs.texlive.combined.scheme-small
+    # LaTeX is provided by Yihui Xie's TinyTeX (R-managed at ~/Library/TinyTeX),
+    # not nixpkgs. Bootstrap with: R -e 'tinytex::install_tinytex()'.
+    # TinyTeX auto-installs missing .sty files on first compile, which
+    # nixpkgs' read-only texlive cannot — important for the kableExtra
+    # / Sweave templates in inst/examples/15PdfShowcase/*.Rnw.
     # pandoc is already in modules/darwin/packages.nix
   ];
 }

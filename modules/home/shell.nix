@@ -66,6 +66,11 @@
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
       [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+
+      # TinyTeX (R-managed TeX Live; auto-installs missing .sty files).
+      # Bootstrap: R -e 'tinytex::install_tinytex()' (or extract the prebuilt
+      # tarball to ~/Library/TinyTeX manually). See modules/darwin/r.nix.
+      export PATH="$HOME/Library/TinyTeX/bin/universal-darwin:$PATH"
     '';
   };
 
