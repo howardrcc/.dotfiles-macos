@@ -25,7 +25,6 @@
 
       # Better defaults
       cat = "bat";
-      cd = "z"; # zoxide
 
       # Dev shortcuts
       lg = "lazygit";
@@ -87,7 +86,8 @@
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
-  };
+    options = [ "--cmd cd" ];   # ← zoxide takes over the cd command
+};
 
   programs.fzf = {
     enable = true;

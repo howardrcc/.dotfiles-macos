@@ -41,6 +41,17 @@
     nowplaying-cli
     switchaudio-osx
 
+    # Container runtime — Colima is a lightweight Docker daemon for macOS
+    # that doesn't need Docker Desktop. Bundle the docker CLI + buildx +
+    # compose plugins so `docker` / `docker compose` / `docker buildx` work
+    # against Colima's socket out of the box.
+    # Start once per session: `colima start --cpu 4 --memory 8 --arch aarch64`
+    # See ~/workspace/dwhr/docs/DOCKER.md for usage.
+    colima
+    docker-client
+    docker-buildx
+    docker-compose
+
     #sd card tools
 #    fio
   ];
