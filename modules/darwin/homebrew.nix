@@ -43,7 +43,7 @@ casks = [
 
       # Editors / Dev
       "visual-studio-code"
-      "r" # CRAN binary R 4.4+ for ~/workspace/dwhr development (CRAN-target package)
+      "r-app" # CRAN binary R 4.4+ for ~/workspace/dwhr development (CRAN-target package)
 
       # Productivity
       "raycast"

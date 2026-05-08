@@ -34,6 +34,8 @@ local cpu = sbar.add("graph", "widgets.cpu" , 42, {
 cpu:subscribe("cpu_update", function(env)
   -- Also available: env.user_load, env.sys_load
   local load = tonumber(env.total_load)
+  -- Guard against int overflow in cpu_load.c after sleep/wake (uint32 tick wraparound)
+  if not load or load < 0 or load > 100 then return end
   cpu:push({ load / 100. })
 
   local color = colors.blue
