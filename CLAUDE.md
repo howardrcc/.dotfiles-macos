@@ -75,3 +75,4 @@ sudo darwin-rebuild switch --flake ~/.dotfiles
 - `shaunsingh/sfmono-nerd-font-ligaturized` tap can't be untapped while `font-sf-mono-nerd-font-ligaturized` cask is installed (harmless warning)
 - `programs.zsh.initExtra` is deprecated — use `initContent` instead
 - `nixfmt-rfc-style` package is deprecated — use `nixfmt` (same thing now)
+- Homebrew 5.1.15+ refuses `brew bundle --cleanup` without a force flag. Since `onActivation.cleanup = "uninstall"`, every rebuild fails with `Invalid usage: ... requires --force` unless `homebrew.onActivation.extraFlags = [ "--force" ];` is set (nix-darwin appends it after `--cleanup`)

@@ -9,6 +9,8 @@
       # Change to "zap" once the cask list is complete and audited
       cleanup = "uninstall";
       upgrade = true;
+      # Homebrew 5.1.15+ requires an explicit force flag to run `brew bundle --cleanup`
+      extraFlags = [ "--force" ];
     };
 
     taps = [
@@ -57,6 +59,7 @@ casks = [
 
       # Media
       "spotify"
+      "moonlight" # Game streaming client (GameStream/Sunshine) — v6.1.0
 
       # Input / System utilities
       "karabiner-elements"
