@@ -18,6 +18,7 @@
     shellAliases = {
       # Nix rebuild
       update = "sudo darwin-rebuild switch --flake ~/.dotfiles";
+      cleanup = "sudo nix-collect-garbage --delete-older-than 7d && nix-collect-garbage --delete-older-than 7d && nix store optimise";
 
       # File listing (eza)
       ls = "eza --icons=always -a";

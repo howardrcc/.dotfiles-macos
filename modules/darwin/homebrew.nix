@@ -38,6 +38,7 @@ casks = [
 
       #misc
       "multimc"
+      "temurin@25" # Eclipse Temurin JDK 25 for Minecraft/MultiMC — installs to /Library/Java/JavaVirtualMachines so MultiMC auto-detects it (Nix store path would change per-update and break MultiMC's pinned Java home)
       # Browsers
       "firefox"
       "zen"

@@ -19,7 +19,10 @@
     neovim
     lazygit
     gh
-    dotnet-sdk_8 # .NET 8 LTS
+    # .NET SDKs 8 LTS + 10 combined into one `dotnet` (separate dotnet-sdk_*
+    # packages collide on bin/dotnet — combinePackages is the supported way
+    # to expose multiple SDKs to a single runtime).
+    (with dotnetCorePackages; combinePackages [ sdk_8_0 sdk_10_0 ])
     # delta (git diff pager) managed via programs.delta in home/git.nix
     python312
     # Scripting (used by SketchyBar Lua config)
