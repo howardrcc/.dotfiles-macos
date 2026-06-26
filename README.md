@@ -3,7 +3,7 @@
 macOS system configuration managed with **nix-darwin** + **Home Manager** + **Flakes**.  
 Apple Silicon (aarch64-darwin), Determinate Systems Nix installer.
 
-![screenshot](images/dotfiles-01.jpg)
+![screenshot](images/dotfiles-01.png)
 
 ---
 
