@@ -5,12 +5,9 @@
     enable = true;
     onActivation = {
       autoUpdate = true;
-      # "uninstall" removes packages no longer listed (safer than "zap" during migration)
-      # Change to "zap" once the cask list is complete and audited
-      cleanup = "uninstall";
+      # brew bundle --cleanup removed in Homebrew 5.2+ — cleanup manually with `brew bundle cleanup --force`
+      cleanup = "none";
       upgrade = true;
-      # Homebrew 5.1.15+ requires an explicit force flag to run `brew bundle --cleanup`
-      extraFlags = [ "--force" ];
     };
 
     taps = [
@@ -45,7 +42,9 @@ casks = [
       "google-chrome"
 
       # Editors / Dev
+      "t3-code"
       "visual-studio-code"
+      "codex"
       "r-app" # CRAN binary R 4.4+ for ~/workspace/dwhr development (CRAN-target package)
 
       # Productivity

@@ -19,6 +19,7 @@
     neovim
     lazygit
     gh
+    (azure-cli.withExtensions [ azure-cli-extensions.azure-devops ])
     # .NET SDKs 8 LTS + 10 combined into one `dotnet` (separate dotnet-sdk_*
     # packages collide on bin/dotnet — combinePackages is the supported way
     # to expose multiple SDKs to a single runtime).

@@ -47,6 +47,10 @@
       bindkey "^[OH" beginning-of-line
       bindkey "^[OF" end-of-line
 
+      # Ctrl+Left/Right word jump
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
+
       # Delete
       bindkey "^[[3~" delete-char
 
