@@ -3,6 +3,7 @@
 {
   imports = [
     ./shell.nix
+    ./fzf.nix
     ./git.nix
     ./terminal.nix
     ./aerospace.nix

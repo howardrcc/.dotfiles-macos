@@ -94,11 +94,6 @@
     options = [ "--cmd cd" ];   # ← zoxide takes over the cd command
 };
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

@@ -48,6 +48,7 @@ sudo darwin-rebuild switch --flake ~/.dotfiles
 │   └── home/
 │       ├── default.nix         # Home Manager entrypoint
 │       ├── shell.nix           # Zsh + Starship + aliases + env vars
+│       ├── fzf.nix             # fzf config + fe/fco/flog/fkill/rgf (docs/fzf.md)
 │       ├── git.nix             # programs.git + programs.delta
 │       ├── terminal.nix        # Ghostty config via xdg.configFile
 │       ├── aerospace.nix       # AeroSpace TOML via xdg.configFile
@@ -59,6 +60,7 @@ sudo darwin-rebuild switch --flake ~/.dotfiles
 │           └── config/         # All SketchyBar Lua files + compiled binaries
 ├── karabiner/
 │   └── karabiner.json          # Karabiner-Elements config (source of truth)
+├── docs/                       # Usage notes (e.g. fzf.md)
 └── archive/                    # Legacy Homebrew-based dotfiles (reference only)
 ```
 
