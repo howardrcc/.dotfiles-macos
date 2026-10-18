@@ -34,8 +34,8 @@ casks = [
       "manaflow-ai/cmux/cmux"
 
       #misc
-      "multimc"
-      "temurin@25" # Eclipse Temurin JDK 25 for Minecraft/MultiMC — installs to /Library/Java/JavaVirtualMachines so MultiMC auto-detects it (Nix store path would change per-update and break MultiMC's pinned Java home)
+      "prismlauncher" # Minecraft launcher; replaces MultiMC (disabled in Homebrew since 2026-09-01)
+      "temurin@25" # Eclipse Temurin JDK 25 for Minecraft/Prism Launcher — installs to /Library/Java/JavaVirtualMachines so Prism auto-detects it (Nix store path would change per-update and break the launcher's pinned Java home)
       # Browsers
       "firefox"
       "zen"
@@ -56,6 +56,7 @@ casks = [
 
       # Communication
       "microsoft-outlook"
+      "proton-mail" # aerospace.toml already routes ch.protonmail.desktop to 5qmail
 
       # Media
       "spotify"
