@@ -40,5 +40,6 @@
   #launchd.daemons.activate-system.serviceConfig.RunAtLoad = lib.mkForce false;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = { inherit inputs; };
   home-manager.users.howard = import ../../modules/home;
 }

@@ -1,8 +1,9 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
+config-version = 2
 
-# It's not necessary to copy all keys to your config.
-# If the key is missing in your config, "default-config.toml" will serve as a fallback
+# Keep all workspaces alive even when empty, so SketchyBar's
+# `list-workspaces --all` (run once at startup) always sees all of them.
+# Required with config-version = 2 (fallback is []).
+persistent-workspaces = ["1_web", "2_sys", "3_code", "4_rdp", "5qmail", "6wsocial", "7e_rdp"]
 
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
@@ -66,7 +67,7 @@ on-focused-monitor-changed = ['move-mouse window-lazy-center']
 
 
 [gaps]
-outer.top = [{monitor."built-in" = 20 },{ monitor."LG" = 30 }, { monitor."C49RG9x" = 35 }, 40]
+outer.top = [{monitor."^built-in retina display$" = 1 },{ monitor."LG" = 30 }, { monitor."C49RG9x" = 35 }, 40] #andere LG en default
 #inner.horizontal = 1
 #inner.vertical = 1
 #outer.left = 1
@@ -122,10 +123,10 @@ ctrl-alt-l = 'resize width +100'  #LOGS OUT
 alt-1 = 'workspace 1_web'
 alt-2 = 'workspace 2_sys'
 alt-3 = 'workspace 3_code'
-alt-4 = 'workspace 4_rdp'
+alt-4 = ['workspace 4_rdp']
 alt-q = 'workspace 5qmail'
 alt-w = 'workspace 6wsocial'
-alt-e = 'workspace 7enotes'
+alt-e = ['workspace 7e_rdp', 'mode disabled']
 
 alt-shift-1 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 1_web && sketchybar --trigger space_windows_change'
 alt-shift-2 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 2_sys && sketchybar --trigger space_windows_change'
@@ -133,7 +134,7 @@ alt-shift-3 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-
 alt-shift-4 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 4_rdp && sketchybar --trigger space_windows_change'
 alt-shift-q = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 5qmail && sketchybar --trigger space_windows_change'
 alt-shift-w = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 6wsocial && sketchybar --trigger space_windows_change'
-alt-shift-e = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 7enotes && sketchybar --trigger space_windows_change'
+alt-shift-e = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 7e_rdp && sketchybar --trigger space_windows_change'
 
 alt-x = 'workspace-back-and-forth'
 alt-space = 'layout floating tiling'
@@ -149,6 +150,10 @@ cmd-alt-space = 'exec-and-forget open -a Finder.app'
 # Disable annoying and useless "hide application" shortcut
 cmd-h = [] # Disable "hide application"
 
+[mode.disabled.binding]
+# Only bind the key to switch back to main mode
+alt-backtick = "mode main"
+
 
 [workspace-to-monitor-force-assignment]
 1_web = ['main', 'secondary']
@@ -157,7 +162,7 @@ cmd-h = [] # Disable "hide application"
 4_rdp = ['main', 'secondary']
 5qmail = ['main', 'secondary']
 6wsocial = ['main', 'secondary']
-7enotes = ['main', 'secondary']
+7e_rdp = ['main', 'secondary']
 
 
 # 1 = 1                            # Monitor sequence number from left to right. 1-based indexing
@@ -249,11 +254,11 @@ run = ['move-node-to-workspace 6wsocial']
 [[on-window-detected]]
 if.app-id = 'com.microsoft.rdc.macos'
 if.window-title-regex-substring = 'Devices'
-run = ['move-node-to-workspace 7enotes']
+run = ['move-node-to-workspace 7e_rdp']
 
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Word'
-run = ['move-node-to-workspace 7enotes']
+run = ['move-node-to-workspace 7e_rdp']
 
 # programm shortcuts

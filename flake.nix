@@ -11,6 +11,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Agent skills (plain repos, not flakes) — linked by modules/home/ai.nix
+    mattpocock-skills = {
+      url = "github:mattpocock/skills";
+      flake = false;
+    };
+    cursor-plugins = {
+      url = "github:cursor/plugins";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ... }: {

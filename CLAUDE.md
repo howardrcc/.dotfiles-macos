@@ -55,6 +55,7 @@ sudo darwin-rebuild switch --flake ~/.dotfiles
 │       ├── aerospace/
 │       │   └── aerospace.toml  # AeroSpace config (source of truth)
 │       ├── karabiner.nix       # Karabiner JSON via xdg.configFile
+│       ├── ai.nix              # Agent skills from flake inputs (unslop → Claude, grilling → Codex)
 │       └── sketchybar/
 │           ├── default.nix     # Lua config dir via xdg.configFile
 │           └── config/         # All SketchyBar Lua files + compiled binaries
@@ -74,6 +75,7 @@ sudo darwin-rebuild switch --flake ~/.dotfiles
 - `font-sketchybar-app-font` must not have a conflicting manually-installed TTF at `~/Library/Fonts/sketchybar-app-font.ttf`
 - SketchyBar launchd service PATH is only `/opt/homebrew/bin:...` — Nix packages are invisible to it. Keep `lua` in `homebrew.brews` (not just Nix packages) so the service can execute the Lua config
 - SketchyBar event provider binaries (`helpers/event_providers/*/bin/`) must NOT be Nix-managed symlinks — `helpers/init.lua` recompiles them with `make` on every startup. They're gitignored and rebuilt fresh each run
+- Skills in `ai.nix` are per-skill `home.file` links (not `programs.claude-code.skills`, which only treats Nix path values as files and can claim `settings.json`). A pre-existing unmanaged `~/.claude/skills/<name>` must be removed before the first rebuild or Home Manager refuses to clobber it. Update with `nix flake update mattpocock-skills cursor-plugins`
 - `shaunsingh/sfmono-nerd-font-ligaturized` tap can't be untapped while `font-sf-mono-nerd-font-ligaturized` cask is installed (harmless warning)
 - `programs.zsh.initExtra` is deprecated — use `initContent` instead
 - `nixfmt-rfc-style` package is deprecated — use `nixfmt` (same thing now)
