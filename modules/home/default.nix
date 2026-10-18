@@ -8,6 +8,7 @@
     ./terminal.nix
     ./aerospace.nix
     ./karabiner.nix
+    ./ai.nix
     ./sketchybar
   ];
 
