@@ -1,3 +1,4 @@
+require("items.bar_watchdog")
 require("items.apple")
 require("items.spaces")
 require("items.front_app")
