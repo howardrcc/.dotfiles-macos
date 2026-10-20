@@ -65,13 +65,12 @@ casks = [
       # Input / System utilities
       "karabiner-elements"
 
-      # Fonts (not available in nixpkgs)
+      # Fonts (not available in nixpkgs; sketchybar-app-font is in fonts.nix)
       "font-sf-mono"
       "font-sf-mono-nerd-font-ligaturized"
       "font-sf-pro"
       "sf-symbols"
       "font-meslo-lg-nerd-font"
-      "font-sketchybar-app-font"
     ];
   };
 }

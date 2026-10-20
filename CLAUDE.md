@@ -72,7 +72,7 @@ sudo darwin-rebuild switch --flake ~/.dotfiles
 - Home Manager symlinks configs into `~/.config/` even though the repo is at `~/.dotfiles/`
 - Git config goes to `~/.config/git/config` (not `~/.gitconfig`) in this version of Home Manager
 - SketchyBar event provider binaries (`cpu_load`, `network_load`) are compiled aarch64 binaries checked in to `modules/home/sketchybar/config/helpers/event_providers/*/bin/` — rebuild by running `helpers/install.sh` if they break after macOS upgrades
-- `font-sketchybar-app-font` must not have a conflicting manually-installed TTF at `~/Library/Fonts/sketchybar-app-font.ttf`
+- `sketchybar-app-font` comes from nixpkgs (`fonts.nix`), not the Homebrew cask (which re-downloaded from GitHub on nearly every rebuild). No copy may exist at `~/Library/Fonts/sketchybar-app-font.ttf`. Glyph names in `helpers/app_icons.lua` must exist in the nixpkgs version (check its `lib/sketchybar-app-font/icon_map.lua`)
 - SketchyBar launchd service PATH is only `/opt/homebrew/bin:...` — Nix packages are invisible to it. Keep `lua` in `homebrew.brews` (not just Nix packages) so the service can execute the Lua config
 - SketchyBar event provider binaries (`helpers/event_providers/*/bin/`) must NOT be Nix-managed symlinks — `helpers/init.lua` recompiles them with `make` on every startup. They're gitignored and rebuilt fresh each run
 - Skills in `ai.nix` are per-skill `home.file` links (not `programs.claude-code.skills`, which only treats Nix path values as files and can claim `settings.json`). A pre-existing unmanaged `~/.claude/skills/<name>` must be removed before the first rebuild or Home Manager refuses to clobber it. Update with `nix flake update mattpocock-skills cursor-plugins`
