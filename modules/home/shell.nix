@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
   programs.zsh = {
@@ -36,7 +36,7 @@
       zed = "open -a /Applications/Zed.app -n";
     };
 
-    initContent = ''
+    initContent = lib.mkMerge [ ''
       # Arrow-key history prefix search
       bindkey "^[[A" history-search-backward
       bindkey "^[[B" history-search-forward
@@ -75,7 +75,13 @@
       # Bootstrap: R -e 'tinytex::install_tinytex()' (or extract the prebuilt
       # tarball to ~/Library/TinyTeX manually). See modules/darwin/r.nix.
       export PATH="$HOME/Library/TinyTeX/bin/universal-darwin:$PATH"
-    '';
+    ''
+
+      # zoxide must be initialized last in .zshrc (after direnv/starship hooks), or `zoxide doctor` warns
+      (lib.mkOrder 2000 ''
+        eval "$(${lib.getExe config.programs.zoxide.package} init zsh ${lib.concatStringsSep " " config.programs.zoxide.options})"
+      '')
+    ];
   };
 
   home.sessionVariables = {
@@ -90,9 +96,9 @@
 
   programs.zoxide = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = false; # init is added at the end of .zshrc below
     options = [ "--cmd cd" ];   # ← zoxide takes over the cd command
-};
+  };
 
   programs.direnv = {
     enable = true;
