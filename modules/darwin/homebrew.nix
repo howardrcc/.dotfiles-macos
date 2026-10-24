@@ -15,6 +15,7 @@
       "nikitabobko/tap" # aerospace
       "shaunsingh/sfmono-nerd-font-ligaturized" # font-sf-mono-nerd-font-ligaturized
       "manaflow-ai/cmux"
+      "stripe/stripe-cli" # stripe
   ];
 
     brews = [
@@ -22,6 +23,7 @@
       "felixkratz/formulae/borders" # JankyBorders window borders — not in nixpkgs
       "lua" # Required by sketchybar launchd service (Nix lua not in launchd PATH)
       "unixodbc" # ODBC headers/libs for the `odbc` R package (~/workspace/dwhr)
+      "stripe/stripe-cli/stripe" # Stripe CLI via official tap
     ];
 
 
